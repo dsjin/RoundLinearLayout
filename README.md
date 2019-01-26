@@ -20,7 +20,7 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 ## Attributes
 | Variable  | Type  | Description |
 | :---------:|:------:| :-----:|
-| radian | Int | radian of layout's surface (default : 20 )|
+| radius | Int | radius of layout's corner (default : 20 )|
 
 ## Usage
 * You can use like a linear layout but if you want to make layout round add `radian` attribute
@@ -28,12 +28,12 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 ```xml
 <com.github.dsjin.RoundLinearLayout
      ...
-     app:radian=360/>
+     app:radius=50/>
 ```
 ### On programmatically
 ```kotlin
 val layout : RoundLinearLayout = findViewById(resource)
-layout.setRadian(360)
+layout.setRadian(50)
 ```
 ## License
 ```
