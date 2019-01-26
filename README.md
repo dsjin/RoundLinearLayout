@@ -19,7 +19,7 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 ```
 ## Attributes
 | Variable  | Type  | Description |
-| :---------|:------:| -----:|
+| :---------:|:------:| :-----:|
 | radian | Int | radian of layout's surface (default : 20 )|
 
 ## Usage
