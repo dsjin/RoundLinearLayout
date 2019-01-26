@@ -39,11 +39,7 @@ class RoundLinearLayout: LinearLayout {
     }
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        path.reset()
-        val rect = RectF()
-        rect.set(0f, 0f, w.toFloat(), h.toFloat())
-        path.addRoundRect(rect, radian.toFloat(), radian.toFloat(), Path.Direction.CW)
-        path.close()
+        setNewPath(w, h)
     }
 
     override fun draw(canvas: Canvas) {
@@ -55,6 +51,15 @@ class RoundLinearLayout: LinearLayout {
 
     fun setRadius(radian : Int){
         this.radian = radian
+        setNewPath(super.getWidth(), super.getHeight())
         invalidate()
+    }
+
+    private fun setNewPath(w : Int , h : Int){
+        path.reset()
+        val rect = RectF()
+        rect.set(0f, 0f, w.toFloat(), h.toFloat())
+        path.addRoundRect(rect, radian.toFloat(), radian.toFloat(), Path.Direction.CW)
+        path.close()
     }
 }
