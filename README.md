@@ -33,7 +33,7 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 ### On programmatically
 ```kotlin
 val layout : RoundLinearLayout = findViewById(resource)
-layout.setRadian(50)
+layout.setRadius(50)
 ```
 ## License
 ```
