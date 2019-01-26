@@ -21,45 +21,52 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.widget.LinearLayout
 
 class RoundLinearLayout: LinearLayout {
-    private var radian : Int
+    private var radius : Int
     private var path : Path
     constructor(context : Context): super(context)
     constructor(context: Context, attrs : AttributeSet):super(context, attrs){
         val a = context.obtainStyledAttributes(attrs, R.styleable.RoundLinearLayout)
-        radian = a.getInt(R.styleable.RoundLinearLayout_radian, 20)
+        radius = convertRadius(a.getInt(R.styleable.RoundLinearLayout_radius, 20))
         a.recycle()
     }
     constructor(context : Context, attrs : AttributeSet, defStyleAttr : Int):super(context, attrs, defStyleAttr)
     init {
         path = Path()
-        radian = 20
+        radius = 20
     }
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         setNewPath(w, h)
     }
 
-    override fun draw(canvas: Canvas) {
+    override fun draw(canvas : Canvas) {
         val save = canvas.save()
         canvas.clipPath(path)
         super.draw(canvas)
         canvas.restoreToCount(save)
     }
 
-    fun setRadius(radian : Int){
-        this.radian = radian
+    fun setRadius(radius : Int){
+        this.radius = convertRadius(radius)
         setNewPath(super.getWidth(), super.getHeight())
         invalidate()
+    }
+
+    private fun convertRadius(radius : Int) : Int{
+        val displayMetrics : DisplayMetrics = context.resources.displayMetrics
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, radius.toFloat(), displayMetrics).toInt()
     }
 
     private fun setNewPath(w : Int , h : Int){
         path.reset()
         val rect = RectF()
         rect.set(0f, 0f, w.toFloat(), h.toFloat())
-        path.addRoundRect(rect, radian.toFloat(), radian.toFloat(), Path.Direction.CW)
+        path.addRoundRect(rect, radius.toFloat(), radius.toFloat(), Path.Direction.CW)
         path.close()
     }
 }
