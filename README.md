@@ -1,8 +1,8 @@
 # RoundLinearLayout
 [![](https://jitpack.io/v/dsjin/RoundLinearLayout.svg)](https://jitpack.io/#dsjin/RoundLinearLayout)
-Simple Round Linear Layout ( android widget ) 
+Simple Round Linear Layout ( android widget ) / not smooth edge
 ## Screen Sample
-![Screenshot](https://i.imgur.com/Pd7cPo2.gif?1)
+![Screenshot](https://imgur.com/pAuzDyr.gif?1)
 ## Dependency
 * add on build.gradle project level
 ```xml
