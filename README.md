@@ -20,7 +20,7 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 ## Attributes
 | Variable  | Type  | Description |
 | :---------:|:------:| :-----:|
-| radius | Int | radius of layout's corner (default : 20 )|
+| radius | Int | radius of layout's corner (default : 10 )|
 
 ## Usage
 * You can use like a linear layout but if you want to make layout round add `radius` attribute
