@@ -26,7 +26,7 @@ implementation 'com.github.dsjin:RoundLinearLayout:{version}'
 * You can use like a linear layout but if you want to make layout round add `radius` attribute
 ### On layout xml
 ```xml
-<com.github.dsjin.RoundLinearLayout
+<tk.dsjin.roundlinearlayout.RoundLinearLayout
      ...
      app:radius=50/>
 ```
